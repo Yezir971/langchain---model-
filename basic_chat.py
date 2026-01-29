@@ -27,6 +27,9 @@ def main() -> None:
     response = model.invoke(messages)  # Returns AIMessage
     print(response.content)
     
+    # on ajoute ici le contexte dans un tableau 
+    messages.append(response)
+    
 
 if __name__ == "__main__":
     main()
