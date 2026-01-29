@@ -70,3 +70,59 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+
+
+# from dotenv import load_dotenv
+# from langchain_openai import ChatOpenAI
+# from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
+
+# def main() -> None:
+#     load_dotenv()
+    
+#     llm = ChatOpenAI(model="gpt-4o-mini", temperature=0.2)
+
+#     prompt = ChatPromptTemplate.from_messages([
+#         ("system", "Tu es un formateur {qualite}. Tu écris en Français, struturé et concret."),
+#         ("human", "créé un mini plan de cours sur {sujet} pour un niveau {niveau} en {duree} minutes."),
+#         MessagesPlaceholder(variable_name="history"),
+#         ("human", "{input}")
+#     ])
+
+#     chain = prompt | llm
+#     user_text: str | None = None 
+
+#     history: list = []
+
+#     print("Chat demarré...")
+
+#     while True:
+#         res = chain.invoke({
+#             "qualite": "motivé et pédagogue",
+#             "sujet": "Langchain",
+#             "niveau": "débutant",
+#             "duree": 30,
+#             "history": history,
+#             "input": user_text if user_text is not None else ""
+#         })
+#         print("Assistant: ", res.content)
+
+#         user_text = input("Vous:").strip()
+#         if not user_text:
+#             continue
+
+#         if user_text.lower() in {"exit", "quit", "q"}:
+#             print("Fin du chat.")
+#             break
+        
+#         if user_text.lower() == "reset":
+#             history.clear()
+#             print("Historique réinitialisé.")
+#             continue
+
+#         history.append(("user", user_text))
+#         history.append(("assistant", res.content))
+
+# if __name__ == "__main__":
+#     main()
