@@ -63,6 +63,7 @@ def main() -> None:
             
         print("Réponse correcte : ", quizz.answer)
     
+
     
 if __name__ == "__main__":
     main()
