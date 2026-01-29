@@ -21,14 +21,17 @@ def main() -> None:
     chat = ChatOpenAI(temperature=0.7, openai_api_key=openai_api_key)
 
     messages = [
-        SystemMessage(content="Tu es expert en cybersécurité. Tu dois m'expliquer des concepte de hack de facon claire et précise."),
-        HumanMessage(content="c'est quoi le phishing ?")
+        # SystemMessage(content="Tu es expert en cybersécurité. Tu dois m'expliquer des concepte de hack de facon claire et précise."),
+        HumanMessage(content="Tu es prof de python donne moi des cours sur les listes")
     ]
     response = model.invoke(messages)  # Returns AIMessage
     print(response.content)
     
     # on ajoute ici le contexte dans un tableau 
-    messages.append(response)
+    messages.append(HumanMessage(content="Donne moi un exemple de liste avec une boucle for pour itérer sur les éléments ?"))
+    
+    response = model.invoke(messages)  # Returns AIMessage
+    print(response.content)
     
 
 if __name__ == "__main__":
